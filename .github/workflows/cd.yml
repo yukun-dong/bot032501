@@ -26,25 +26,10 @@ jobs:
         run: |
           npm install @microsoft/teamsapp-cli@${{env.TEAMSAPP_CLI_VERSION}}
 
-      - name: Login Azure by service principal
+      - name: "Install dependencies"
         run: |
-          npx teamsapp account login azure --username ${{vars.AZURE_SERVICE_PRINCIPAL_CLIENT_ID}}  \
-          --service-principal true \
-          --tenant ${{vars.AZURE_TENANT_ID}} \
-          --password ${{secrets.AZURE_SERVICE_PRINCIPAL_CLIENT_SECRET }} \
-          --interactive false
+          npm install
 
-      - name: Deploy to hosting environment
+      - name: "Build app"
         run: |
-          npx teamsapp deploy --ignore-env-file true \
-          --interactive false
-
-      - name: Package app
-        run: |
-          npx teamsapp package
-
-      - name: upload appPackage
-        uses: actions/upload-artifact@v4
-        with:
-          name: artifact
-          path: appPackage/build/appPackage.zip
+          npm run build --verbose
