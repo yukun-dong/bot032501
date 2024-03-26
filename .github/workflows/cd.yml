@@ -32,4 +32,12 @@ jobs:
 
       - name: "Build app"
         run: |
+          npm ls @types/fs-extra
+
+      - name: "Build app"
+        run: |
+          npm ls fs-extra
+
+      - name: "Build app"
+        run: |
           npm run build --verbose
