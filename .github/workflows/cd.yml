@@ -22,6 +22,14 @@ jobs:
         with:
           node-version: "20.8.1"
 
+      - name: "ls"
+        run: |
+          npm ls -g
+
+      - name: "ls"
+        run: |
+          npm install -g corepack@0.20.0
+
       - name: install cli
         run: |
           npm install @microsoft/teamsapp-cli@${{env.TEAMSAPP_CLI_VERSION}}
