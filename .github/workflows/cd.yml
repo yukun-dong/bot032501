@@ -27,10 +27,7 @@ jobs:
         run: |
           npm install -g @microsoft/teamsapp-cli@${{env.TEAMSAPP_CLI_VERSION}}
 
-      - name: "Install dependencies"
-        run: |
-          npm install
-
       - name: "Build app"
         run: |
-          npm run build --verbose
+          teamsapp deploy --ignore-env-file true \
+          --interactive false
