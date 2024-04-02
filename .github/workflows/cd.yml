@@ -22,25 +22,14 @@ jobs:
         with:
           node-version: "20.8.1"
 
-      - name: "ls"
-        run: |
-          npm install -g typescript@5.4.3
 
       - name: install cli
         run: |
-          npm install @microsoft/teamsapp-cli@${{env.TEAMSAPP_CLI_VERSION}}
+          npm install -g @microsoft/teamsapp-cli@${{env.TEAMSAPP_CLI_VERSION}}
 
       - name: "Install dependencies"
         run: |
           npm install
-
-      - name: "Build app"
-        run: |
-          npm ls @types/fs-extra
-
-      - name: "Build app"
-        run: |
-          npm ls fs-extra
 
       - name: "Build app"
         run: |
