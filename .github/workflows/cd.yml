@@ -13,6 +13,7 @@ jobs:
       APP_NAME_SUFFIX: ${{vars.APP_NAME_SUFFIX}}
       # Add extra environment variables here so that teamsapp cli can use them.
 
+
     steps:
       - name: "Checkout Github Action"
         uses: actions/checkout@master
