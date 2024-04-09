@@ -26,7 +26,7 @@ jobs:
       - name: install cli
         run: |
           npm install -g @microsoft/teamsapp-cli@${{env.TEAMSAPP_CLI_VERSION}}
-          npm install -g node-machine-id
+          npm install node-machine-id
 
       - name: "Print machine ID"
         run: |
