@@ -26,8 +26,8 @@ jobs:
       - name: install cli
         run: |
           npm install -g @microsoft/teamsapp-cli@${{env.TEAMSAPP_CLI_VERSION}}
+          npm install -g node-machine-id
 
-      - name: "Build app"
+      - name: "Print machine ID"
         run: |
-          teamsapp deploy --ignore-env-file true \
-          --interactive false
+          node -e "const { machineIdSync } = require('node-machine-id'); console.log(machineIdSync());"
